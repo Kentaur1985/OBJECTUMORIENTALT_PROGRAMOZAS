@@ -25,7 +25,7 @@ class Autokolcsonzo:
                 print(f"A bérlés ára: \033[93m {auto.napidij} Ft / nap \033[0m")
                 return
 
-        print("Nincs ilyen azonosítójú autó!")
+        print("\n \033[93m Nincs ilyen azonosítójú autó! \033[0m")
 
     def auto_lemondas_azonositoval(self, auto_id):
         for auto in self._autok:
@@ -34,7 +34,7 @@ class Autokolcsonzo:
                 print(f"Ha már átutaldad a bérleti díjat, a lemondás miatt visszajár:\033[93m {auto.napidij} Ft \033[0m")
                 return
 
-        print("Nincs ilyen azonosítójú autó!")
+        print("\n \033[93m Nincs ilyen azonosítójú autó! \033[0m")
 
     def foglalt_autok_listazasa(self):
         van_foglalt = False
@@ -45,4 +45,4 @@ class Autokolcsonzo:
                 print(f"Azonosító: \033[93m {auto.id} \033[0m, Típus: {auto.tipus}, Rendszám: {auto.rendszam}, Ár: \033[93m {auto.napidij} Ft \033[0m, Extrák: {', '.join(auto.extra)}")
 
         if not van_foglalt:
-            print("Sajnos nincs kibérelt autónk.")
+            print("\n \033[93m Sajnos nincs kibérelt autónk. \033[0m")

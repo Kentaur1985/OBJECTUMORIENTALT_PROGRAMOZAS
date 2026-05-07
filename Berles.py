@@ -24,7 +24,7 @@ class BerlesRendszer:
         self._kolcsonzo._autok[6]._kiberelt = True
 
     def user_interact(self):
-        print(f"\nÜdvözöl a(z) {self._kolcsonzo.name} autókölcsönző!\n")
+        print(f"\n\033[93m Üdvözöl a {self._kolcsonzo.name} autókölcsönző! \033[0m \n")
         print("Ha szükséged van egy autóra, vagy egy teherautóra egy napra, akkor jó helyen jársz!")
         while True:
             print("\n1. Az összes autónk listája")
@@ -34,27 +34,27 @@ class BerlesRendszer:
             print("5. Kilépés")
 
             try:
-                menu = int(input("Válassz mit szeretnél: "))
+                menu = int(input("\n\033[93m Válassz mit szeretnél: \033[0m"))
 
                 if menu == 1:
                     self._kolcsonzo.autok
 
                 elif menu == 2:
                     try:
-                        auto_id = int(input("Add meg az autó azonosítóját: (pl. 1, 2, 101, 102): "))
+                        auto_id = int(input(" \n\033[93m Add meg az autó azonosítóját: (pl. 1, 2, 101, 102): \n\033[0m "))
                         self._kolcsonzo.autoberles_azonositoval(auto_id)
                     except ValueError:
-                        print("Hiba! Csak számot adhatsz meg az azonosítóhoz! (pl. 1, 2, 101, 102)")
+                        print("\n\033[93m Hiba! Csak számot adhatsz meg az azonosítóhoz! (pl. 1, 2, 101, 102)\n\033[0m" )
 
                 elif menu == 3:
                     try:
-                        auto_id = int(input("Add meg az autó azonosítóját: (pl. 1, 2, 101, 102): "))
+                        auto_id = int(input("\n\033[93m Add meg az autó azonosítóját: (pl. 1, 2, 101, 102): \n\033[0m"))
                         self._kolcsonzo.auto_lemondas_azonositoval(auto_id)
                     except ValueError:
-                        print("Hiba! Csak számot adhatsz meg az azonosítóhoz! (pl. 1, 2, 101, 102)")
+                        print("\n\033[31m Hiba! Csak számot adhatsz meg az azonosítóhoz! (pl. 1, 2, 101, 102)\n \033[0m")
 
                 elif menu == 4:
-                    print("\nEzek az autóink foglaltak mára")
+                    print("\n Ezek az autóink foglaltak mára")
                     self._kolcsonzo.foglalt_autok_listazasa()
 
                 elif menu == 5:
@@ -62,13 +62,13 @@ class BerlesRendszer:
                     break
 
                 else:
-                    print("Nincs ilyen menüpontunk!")
+                    print("\n\033[31m Nincs ilyen menüpontunk!\033[0m")
 
             except ValueError:
-                print("Hiba! A menüpont csak szám lehet! (1-5)")
+                print("\n \033[31m Hiba! A menüpont csak szám lehet! (1-5)\033[0m")
 
             except Exception as e:
-                print(f"Valami hibát észleltünk, lépj be újra: {e}")
+                print(f"\n \033[31m Valami hibát észleltünk, lépj be újra: {e} \033[0m")
 
 
 

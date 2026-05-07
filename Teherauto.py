@@ -14,11 +14,11 @@ class Teherauto(Auto):
             self._kiberelt = True
             print("\033[93m Sikeres bérlés! \033[0m")
         else:
-            print("Ezt az autót már kibérelték!")
+            print("\033[31m Ezt az autót már kibérelték! \033[0m")
 
     def auto_lemondas(self):
         if self._kiberelt:
             self._kiberelt = False
-            print("Sikeres lemondás!")
+            print("\n \033[93m Sikeres lemondás! \033[0m")
         else:
-            print("Az autó nincs kibérelve!")
+            print("\n \033[31mAz autó nincs kibérelve! \033[0m")
