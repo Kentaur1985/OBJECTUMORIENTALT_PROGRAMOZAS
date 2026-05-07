@@ -65,7 +65,7 @@ class BerlesRendszer:
                     print("Nincs ilyen menüpontunk!")
 
             except ValueError:
-                print("Hiba! A menüpont csak szám lehet! (1-4)")
+                print("Hiba! A menüpont csak szám lehet! (1-5)")
 
             except Exception as e:
                 print(f"Valami hibát észleltünk, lépj be újra: {e}")
