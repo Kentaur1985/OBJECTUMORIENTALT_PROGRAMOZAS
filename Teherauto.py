@@ -1,13 +1,18 @@
-from Auto import Auto
+from Auto import Auto #ezzel hívjuk meg a szülő osztályt
 
 class Teherauto(Auto):
-    def __init__(self, id, tipus, rendszam, napidij, extra):
-        super().__init__(id, tipus, rendszam, napidij)
+    def __init__(self, id, tipus, rendszam, napidij, extra, meret):
+        super().__init__(id, tipus, rendszam, napidij)#Superrel a szülő osztályból hivatkozok
         self._extra = extra
+        self._meret = meret #Csak a teherautónál van ez a paraméter
 
     @property
     def extra(self):
         return self._extra
+
+    @property
+    def meret(self):
+        return self._meret
 
     def auto_berles(self):
         if not self._kiberelt:
