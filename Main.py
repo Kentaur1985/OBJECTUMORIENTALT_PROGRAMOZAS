@@ -46,12 +46,14 @@ class BerlesRendszer:
                         self._kolcsonzo.autoberles_azonositoval(auto_id, berlo_neve, datum)
                     except ValueError:
                         print("\n\033[93m Hiba! Csak számot adhatsz meg az azonosítóhoz! \033[0m") #hibakezelés
-                elif menu == 3:#bérlés lemondása hibakezeléssel
+                elif menu == 3:
                     try:
                         auto_id = int(input("\n\033[93m Add meg az autó azonosítóját: (pl. 1, 2, 101, 102): \n\033[0m"))
                         berlo_neve = input("\033[93m Add meg a bérlő nevét: \033[0m")
-                        self._kolcsonzo.auto_lemondas_azonositoval(auto_id)
+                        datum = input("\033[93m Add meg a bérlés dátumát: pl. 2026-09-01 \033[0m")
+                        self._kolcsonzo.auto_lemondas_azonositoval(auto_id, berlo_neve, datum)
                     except ValueError:
+                        print("\n\033[31m Hiba! Csak számot adhatsz meg az azonosítóhoz! \033[0m")
                         print("\n\033[31m Hiba! Csak számot adhatsz meg az azonosítóhoz! \033[0m")
                 elif menu == 4:# A foglalt autók listázása
                     print("\n Ezek az autóink foglaltak")

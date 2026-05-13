@@ -37,20 +37,33 @@ class Autokolcsonzo: # itt hozom létre a kölcsönzőt
                     print(f"\033[31m Ez az autó ezen a napon már foglalt: {datum} \033[0m")
                 else:
                     self._berlesek.append(Berles(berlo_neve, auto_id, datum))
+                    print("___________________")
                     print("\033[93m Sikeres bérlés! \033[0m")
                     print(f"A bérlés ára: \033[93m {auto.napidij} Ft / nap \033[0m")
                 return
 
         print("\n \033[93m Nincs ilyen azonosítójú autó! \033[0m")
-    def auto_lemondas_azonositoval(self, auto_id):
-        self._berlesek = [berles for berles in self._berlesek if berles.auto_id != auto_id] #Nem egyenlő
+
+    def auto_lemondas_azonositoval(self, auto_id, berlo_neve, datum):
+
+        berles = next((b for b in self._berlesek
+                if b.auto_id == auto_id
+                   and b.berlo_neve.lower() == berlo_neve.lower()
+                   and b.datum == datum),
+            None )
+
+        if not berles:
+            print("\n\033[31m Nincs ilyen bérlés ezekkel az adatokkal! \033[0m")
+            return
+
+        self._berlesek.remove(berles)
+
         for auto in self._autok:
             if auto.id == auto_id:
-                auto.auto_lemondas()
-                print(f"Ha már átutaldad a bérleti díjat, a lemondás miatt visszajár:\033[93m {auto.napidij} Ft \033[0m")
+                print("___________________")
+                print("\n\033[93m Sikeres lemondás! \033[0m")
+                print(f"Ha már átutaltad a bérleti díjat, visszajár: \033[93m {auto.napidij} Ft \033[0m")
                 return
-
-        print("\n \033[93m Nincs ilyen azonosítójú autó! \033[0m")
 
     def foglalt_autok_listazasa(self):
         if not self._berlesek:
